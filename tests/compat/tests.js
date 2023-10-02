@@ -1747,6 +1747,9 @@ GLOBAL.tests = {
   'esnext.promise.with-resolvers': [PROMISES_SUPPORT, function () {
     return Promise.withResolvers;
   }],
+  'esnext.regexp.escape': function () {
+    return RegExp.escape;
+  },
   'esnext.set.add-all': function () {
     return Set.prototype.addAll;
   },
@@ -1815,8 +1818,8 @@ GLOBAL.tests = {
   'esnext.symbol.matcher': function () {
     return Symbol.matcher;
   },
-  'esnext.symbol.metadata-key': function () {
-    return Symbol.metadataKey;
+  'esnext.symbol.metadata': function () {
+    return Symbol.metadata;
   },
   'esnext.symbol.observable': function () {
     return Symbol.observable;

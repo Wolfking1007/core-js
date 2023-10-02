@@ -1,10 +1,18 @@
 ## Changelog
 ##### Unreleased
+- Compat data improvements:
+  - [`String.prototype.{ isWellFormed, toWellFormed }`](https://github.com/tc39/proposal-is-usv-string) marked as [supported from FF119](https://bugzilla.mozilla.org/show_bug.cgi?id=1850755)
+
+##### [3.33.0 - 2023.10.02](https://github.com/zloirock/core-js/releases/tag/v3.33.0)
+- Re-introduced [`RegExp` escaping stage 2 proposal](https://github.com/tc39/proposal-regex-escaping), September 2023 TC39 meeting:
+  - Added `RegExp.escape` method with the new set of symbols for escaping
+  - Some years ago, it was presented in `core-js`, but it was removed after rejecting the old version of this proposal
 - Added [`ArrayBuffer.prototype.{ transfer, transferToFixedLength }`](https://github.com/tc39/proposal-arraybuffer-transfer) and support transferring of `ArrayBuffer`s via [`structuredClone`](https://html.spec.whatwg.org/multipage/structured-data.html#dom-structuredclone) to engines with `MessageChannel`
 - Optimized [`Math.f16round`](https://github.com/tc39/proposal-float16array) polyfill
 - Fixed [some conversion cases](https://github.com/petamoriken/float16/issues/1046) of [`Math.f16round` and `DataView.prototype.{ getFloat16, setFloat16 }`](https://github.com/tc39/proposal-float16array)
 - Fully forced polyfilling of [the TC39 `Observable` proposal](https://github.com/tc39/proposal-observable) because of incompatibility with [the new WHATWG `Observable` proposal](https://github.com/WICG/observable)
 - Added an extra workaround of errors with exotic environment objects in `Symbol` polyfill, [#1289](https://github.com/zloirock/core-js/issues/1289)
+- Some minor fixes and stylistic changes
 - Compat data improvements:
   - V8 unshipped [`Iterator` helpers](https://github.com/tc39/proposal-iterator-helpers) because of [some Web compatibility issues](https://github.com/tc39/proposal-iterator-helpers/issues/286)
   - [`Promise.withResolvers`](https://github.com/tc39/proposal-promise-with-resolvers) marked as [supported from V8 ~ Chrome 119](https://chromestatus.com/feature/5810984110784512)

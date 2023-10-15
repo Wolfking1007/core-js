@@ -4,7 +4,7 @@ const confusingBrowserGlobals = require('confusing-browser-globals');
 const parserJSONC = require('jsonc-eslint-parser');
 const pluginArrayFunc = require('eslint-plugin-array-func');
 const pluginESX = require('eslint-plugin-es-x');
-const pluginESlintComments = require('eslint-plugin-eslint-comments');
+const pluginESlintComments = require('@eslint-community/eslint-plugin-eslint-comments');
 const pluginFilenames = require('eslint-plugin-filenames');
 const pluginImport = require('eslint-plugin-import');
 const pluginJSONC = require('eslint-plugin-jsonc');
@@ -619,7 +619,7 @@ const base = {
   'unicorn/prefer-set-size': ERROR,
   // prefer `String#replaceAll()` over regex searches with the global flag
   'unicorn/prefer-string-replace-all': ERROR,
-  // prefer `String#{ startsWith, endsWith }()` over RegExp#test()
+  // prefer `String#{ startsWith, endsWith }()` over `RegExp#test()`
   'unicorn/prefer-string-starts-ends-with': ERROR,
   // prefer `String#{ trimStart, trimEnd }()` over `String#{ trimLeft, trimRight }()`
   'unicorn/prefer-string-trim-start-end': ERROR,
@@ -825,7 +825,7 @@ const base = {
   // use the `i` flag if it simplifies the pattern
   'regexp/use-ignore-case': ERROR,
   // ReDoS vulnerability check
-  'redos/no-vulnerable': [ERROR, { timeout: 1e3 }],
+  'redos/no-vulnerable': [ERROR, { timeout: 1e3, cache: { strategy: 'aggressive' } }],
 
   // disallow function declarations in if statement clauses without using blocks
   'es/no-function-declarations-in-if-statement-clauses-without-block': ERROR,
@@ -945,8 +945,6 @@ const forbidES5BuiltIns = {
   'es/no-string-prototype-trim': ERROR,
   // prefer `Date.now()` to get the number of milliseconds since the Unix Epoch
   'unicorn/prefer-date-now': OFF,
-  // prefer modern `Math` APIs over legacy patterns
-  'unicorn/prefer-modern-math-apis': OFF,
 };
 
 const forbidES2015BuiltIns = {
@@ -1007,7 +1005,9 @@ const forbidES2015BuiltIns = {
   'es/no-typed-arrays': ERROR,
   'es/no-weak-map': ERROR,
   'es/no-weak-set': ERROR,
-  // prefer `String#{ startsWith, endsWith }()` over RegExp#test()
+  // prefer modern `Math` APIs over legacy patterns
+  'unicorn/prefer-modern-math-apis': OFF,
+  // prefer `String#{ startsWith, endsWith }()` over `RegExp#test()`
   'unicorn/prefer-string-starts-ends-with': OFF,
 };
 

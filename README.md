@@ -177,7 +177,6 @@ structuredClone(new Set([1, 2, 3])); // => new Set([1, 2, 3])
       - [`compositeKey` and `compositeSymbol`](#compositekey-and-compositesymbol)
       - [`Array` filtering](#array-filtering)
       - [`Array` deduplication](#array-deduplication)
-      - [Getting last item from `Array`](#getting-last-item-from-array)
       - [`DataView` get / set `Uint8Clamped` methods](#dataview-get-set-iint8clamped-methods)
       - [`Number.fromString`](#numberfromstring)
       - [`Math` extensions](#math-extensions)
@@ -188,7 +187,6 @@ structuredClone(new Set([1, 2, 3])); // => new Set([1, 2, 3])
     - [Stage 0 proposals](#stage-0-proposals)
       - [`Function.prototype.demethodize`](#functionprototypedemethodize)
       - [`Function.{ isCallable, isConstructor }`](#function-iscallable-isconstructor-)
-      - [`URL`](#url)
     - [Pre-stage 0 proposals](#pre-stage-0-proposals)
       - [`Reflect` metadata](#reflect-metadata)
   - [Web standards](#web-standards)
@@ -2203,7 +2201,6 @@ core-js(-pure)/actual|full/iterator/find
 core-js(-pure)/actual|full/iterator/flat-map
 core-js(-pure)/actual|full/iterator/for-each
 core-js(-pure)/actual|full/iterator/from
-core-js(-pure)/actual|full/iterator/indexed
 core-js(-pure)/actual|full/iterator/map
 core-js(-pure)/actual|full/iterator/reduce
 core-js(-pure)/actual|full/iterator/some
@@ -2364,7 +2361,7 @@ embedded === '{"tooBigForNumber":9007199254740993}'; // true
 ```
 
 ##### [`Float16` methods](https://github.com/tc39/proposal-float16array)[⬆](#index)
-Modules [`esnext.data-view.get-uint8-clamped`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.data-view.get-uint8-clamped.js), [`esnext.data-view.set-uint8-clamped`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.data-view.set-uint8-clamped.js) and [`esnext.math.f16round`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.math.f16round.js)
+Modules [`esnext.data-view.get-float16`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.data-view.get-float16.js), [`esnext.data-view.set-float16`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.data-view.set-float16.js) and [`esnext.math.f16round`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.math.f16round.js)
 ```js
 class DataView {
   getFloat16(offset: any): number
@@ -2535,7 +2532,6 @@ core-js(-pure)/actual|full/async-iterator/find
 core-js(-pure)/actual|full/async-iterator/flat-map
 core-js(-pure)/actual|full/async-iterator/for-each
 core-js(-pure)/actual|full/async-iterator/from
-core-js(-pure)/actual|full/async-iterator/indexed
 core-js(-pure)/actual|full/async-iterator/map
 core-js(-pure)/actual|full/async-iterator/reduce
 core-js(-pure)/actual|full/async-iterator/some
@@ -2931,30 +2927,6 @@ core-js/full/typed-array/unique-by
   { id: 3, uid: 10001 }
 ].uniqueBy(it => it.uid);    // => [{ id: 1, uid: 10000 }, { id: 3, uid: 10001 }]
 ```
-##### [Getting last item from `Array`](https://github.com/keithamus/proposal-array-last)[⬆](#index)
-Modules [`esnext.array.last-item`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.array.last-item.js) and [`esnext.array.last-index`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.array.last-index.js)
-```js
-class Array {
-  attribute lastItem: any;
-  readonly attribute lastIndex: uint;
-}
-```
-[*CommonJS entry points:*](#commonjs-api)
-```js
-core-js/proposals/array-last
-core-js/full/array/last-item
-core-js/full/array/last-index
-```
-[*Examples*](https://goo.gl/2TmcMT):
-```js
-[1, 2, 3].lastItem;  // => 3
-[1, 2, 3].lastIndex; // => 2
-
-const array = [1, 2, 3];
-array.lastItem = 4;
-
-array; // => [1, 2, 4]
-```
 
 ##### [`DataView` get / set `Uint8Clamped` methods](https://github.com/tc39/proposal-dataview-get-set-uint8clamped)[⬆](#index)
 Modules [`esnext.data-view.get-uint8-clamped`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.data-view.get-uint8-clamped.js) and [`esnext.data-view.set-uint8-clamped`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.data-view.set-uint8-clamped.js)
@@ -3140,8 +3112,6 @@ Function.isConstructor(function () {}); // => true
 Function.isConstructor(() => {});       // => false
 Function.isConstructor(class {});       // => true
 ```
-##### [`URL`](https://github.com/jasnell/proposal-url)[⬆](#index)
-See more info [in web standards namespace](#url-and-urlsearchparams)
 
 #### Pre-stage 0 proposals[⬆](#index)
 [*CommonJS entry points:*](#commonjs-api)
